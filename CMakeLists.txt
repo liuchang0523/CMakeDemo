@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 set(Progject_Name "Test" CACHE STRING "设置工程文件名")
 project(${Progject_Name} VERSION 1.0.0 LANGUAGES CXX C)#工程名
 
-set(CMAKE_INSTALL_PREFIX D:/install/${Progject_Name} CACHE PATH "安装路径" FORCE)
+#set(CMAKE_INSTALL_PREFIX D:/install/${Progject_Name} CACHE PATH "安装路径" FORCE)
 
 OPTION(USE_OPENMP "使用OpenMP加速" OFF)
 if (USE_OPENMP)
