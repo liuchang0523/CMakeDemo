@@ -1,0 +1,30 @@
+/*****************************************************************************
+*  Orbbec DispIP 3.0
+*  Copyright (C) 2018 by ORBBEC Technology., Inc.
+*
+*  This file is part of Orbbec DispIP.
+*
+*  This file belongs to ORBBEC Technology., Inc.
+*  It is considered a trade secret, and is not to be divulged or used by
+* parties who have NOT received written authorization from the owner.
+*
+*  Description:
+*
+****************************************************************************/
+#ifndef ___VERSION_H__
+#define ___VERSION_H__
+
+#define ${PROGRAM_NAME}_VERSION_MAJOR ${PROJECT_VERSION_MAJOR}
+#define ${PROGRAM_NAME}_VERSION_MINOR ${PROJECT_VERSION_MINOR}
+#define ${PROGRAM_NAME}_VERSION_PATCH ${PROJECT_VERSION_PATCH}
+
+#define ${PROGRAM_NAME}_STR_EXP(__A)    #__A
+#define ${PROGRAM_NAME}_STR(__A)        ${PROGRAM_NAME}_STR_EXP(__A)
+
+#define ${PROGRAM_NAME}_STRW_EXP(__A)   L#__A
+#define ${PROGRAM_NAME}_STRW(__A)       ${PROGRAM_NAME}_STRW_EXP(__A)
+
+#define VERSION     ${PROGRAM_NAME}_STR(${PROJECT_VERSION_MAJOR}) "." ${PROGRAM_NAME}_STR(${PROJECT_VERSION_MINOR}) "." ${PROGRAM_NAME}_STR(${PROJECT_VERSION_PATCH})
+
+
+#endif // ___VERSION_H__
