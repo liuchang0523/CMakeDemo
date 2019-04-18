@@ -15,7 +15,7 @@
 #define ___VERSION_H__
 
 #define Test_VERSION_MAJOR 1
-#define Test_VERSION_MINOR 0
+#define Test_VERSION_MINOR 1
 #define Test_VERSION_PATCH 0
 
 #define Test_STR_EXP(__A)    #__A
@@ -24,7 +24,7 @@
 #define Test_STRW_EXP(__A)   L#__A
 #define Test_STRW(__A)       Test_STRW_EXP(__A)
 
-#define VERSION     Test_STR(1) "." Test_STR(0) "." Test_STR(0)
+#define VERSION     Test_STR(1) "." Test_STR(1) "." Test_STR(0)
 
 
 #endif // ___VERSION_H__

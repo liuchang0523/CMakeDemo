@@ -1,22 +1,7 @@
 set(PROGRAM_NAME ${PROJECT_NAME})#设置程序名
 
 FILE(GLOB SRC_FILES "*.cpp")#源文件
-FILE(GLOB HEAD_FILES "*.h")#头文件
-FILE(GLOB RC_FILES "*.rc")#资源文件
-
-
-#生成资源文件
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/version.rc.in
-        ${CMAKE_CURRENT_SOURCE_DIR}/version.rc
-        NEWLINE_STYLE UNIX)
-#生成版本号头文件
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/version.h.in
-        ${CMAKE_CURRENT_SOURCE_DIR}/version.h
-        NEWLINE_STYLE UNIX)
-
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
-SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)#设置exe文件生成路径
+add_subdirectory(version)#版本相关文件
 
 add_executable(exe ${SRC_FILES} ${HEAD_FILES} ${RC_FILES})
 set_target_properties(exe PROPERTIES

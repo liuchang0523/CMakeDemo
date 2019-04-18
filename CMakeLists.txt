@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 set(Progject_Name "Test" CACHE STRING "设置工程文件名")
-project(${Progject_Name} VERSION 1.0.0 LANGUAGES CXX C)#工程名
+project(${Progject_Name} VERSION 1.1.0 LANGUAGES CXX C)#工程名
 
 set(CMAKE_CXX_STANDARD 11) #设置C++11开启
 
@@ -22,6 +22,10 @@ if(USE_OPENCV)#如果需要包含第三方库
 
     include_directories( ${OpenCV_INCLUDE_DIRS} )
 endif(USE_OPENCV)
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#设置静态库文件生成路径
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#设置动态库文件生成路径
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)#设置exe文件生成路径
 
 #add子目录(要放在最后面，不然include目录不会包含)
 add_subdirectory(source)
