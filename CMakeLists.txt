@@ -2,6 +2,12 @@ cmake_minimum_required(VERSION 3.5)
 set(Progject_Name "Test" CACHE STRING "设置工程文件名")
 project(${Progject_Name} VERSION 1.1.0 LANGUAGES CXX C)#工程名
 
+#设置默认install位置
+#if(NOT DEFINED CMAKE_INSTALL_PREFIX)
+set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Installation Directory" FORCE)
+#endif()
+message(STATUS "CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}")
+
 set(CMAKE_CXX_STANDARD 11) #设置C++11开启
 
 OPTION(USE_OPENMP "使用OpenMP加速" OFF)
