@@ -3,9 +3,7 @@ set(Progject_Name "Test" CACHE STRING "设置工程文件名")
 project(${Progject_Name} VERSION 1.1.0 LANGUAGES CXX C)#工程名
 
 #设置默认install位置
-#if(NOT DEFINED CMAKE_INSTALL_PREFIX)
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Installation Directory" FORCE)
-#endif()
 message(STATUS "CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}")
 
 set(CMAKE_CXX_STANDARD 11) #设置C++11开启
@@ -17,7 +15,7 @@ if (USE_OPENMP)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 endif (USE_OPENMP)
 
-OPTION(USE_OPENCV "使用OpenCV" OFF)
+OPTION(USE_OPENCV "使用OpenCV" ON)
 if(USE_OPENCV)#如果需要包含第三方库
     find_package( OpenCV REQUIRED )
 
@@ -28,6 +26,12 @@ if(USE_OPENCV)#如果需要包含第三方库
 
     include_directories( ${OpenCV_INCLUDE_DIRS} )
 endif(USE_OPENCV)
+
+OPTION(USE_OPENCV "使用Boost" ON)
+if(USE_BOOST)#如果需要包含Boost
+find_package(Boost REQUIRED filesystem) #PATHS E:/3rdParty/install)
+include_directories(${Boost_INCLUDE_DIRS})
+endif(USE_BOOST)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#设置静态库文件生成路径
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#设置动态库文件生成路径
