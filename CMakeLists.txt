@@ -27,7 +27,7 @@ if(USE_OPENCV)#如果需要包含第三方库
     include_directories( ${OpenCV_INCLUDE_DIRS} )
 endif(USE_OPENCV)
 
-OPTION(USE_OPENCV "使用Boost" ON)
+OPTION(USE_BOOST "使用Boost" ON)
 if(USE_BOOST)#如果需要包含Boost
 find_package(Boost REQUIRED filesystem) #PATHS E:/3rdParty/install)
 include_directories(${Boost_INCLUDE_DIRS})

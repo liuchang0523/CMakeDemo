@@ -15,7 +15,7 @@ before_script:
 script:
   # run cmake; here we assume that the project's
   # top-level CMakeLists.txt is located at '..'
-  - cmake .. -DGenerate_DLL:BOOL="1" #-DInstall_DLL:BOOL="1" 
+  - cmake .. -DGenerate_DLL:BOOL="1" -DUSE_OPENCV="0" -DUSE_BOOST="0"
   # once CMake has done its job we just build using make as usual
   - cmake --build . --config Release #编译
   #- cmake --build . --target INSTALL --config Release #安装
