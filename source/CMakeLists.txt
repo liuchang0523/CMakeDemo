@@ -8,6 +8,7 @@ set_target_properties(exe PROPERTIES
         OUTPUT_NAME ${PROGRAM_NAME})#设置程序名为Project的名字
 install(TARGETS exe 
 		RUNTIME DESTINATION bin)#install可执行程序 
+target_link_libraries(exe ${Boost_LIBRARIES})
 
 if(USE_OPENCV)#如果需要包含第三方库
     target_link_libraries(exe ${OpenCV_LIBS})
