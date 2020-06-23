@@ -4,6 +4,9 @@ FILE(GLOB RC_FILES "*.rc")#资源文件
 set(HEAD_FILES ${HEAD_FILES} CACHE INTERNAL "头文件")
 set(RC_FILES ${RC_FILES} CACHE INTERNAL "资源文件")
 
+string(TIMESTAMP BUILDDATE "%Y%m%d")#获取当前日期
+string(SUBSTRING ${BUILDDATE} 2 6 BUILDDATE)#字符串截断
+
 #生成资源文件
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/version.rc.in
         ${CMAKE_CURRENT_SOURCE_DIR}/version.rc

@@ -14,6 +14,10 @@ if(USE_OPENCV)#如果需要包含第三方库
     target_link_libraries(exe ${OpenCV_LIBS})
 endif()
 
+if(USE_Boost_filesystem)#如果需要包含Boost
+target_link_libraries(exe ${Boost_LIBRARIES})
+endif(USE_Boost_filesystem)
+
 OPTION(Generate_DLL "生成动态库" ON)
 if(Generate_DLL)
     add_library(dll SHARED ${SRC_FILES} ${HEAD_FILES} ${RC_FILES})

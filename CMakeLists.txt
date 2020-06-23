@@ -1,22 +1,22 @@
 cmake_minimum_required(VERSION 3.5)
-set(Progject_Name "Test" CACHE STRING "è®¾ç½®å·¥ç¨‹æ–‡ä»¶å")
-project(${Progject_Name} VERSION 1.1.0 LANGUAGES CXX C)#å·¥ç¨‹å
+set(Progject_Name "Test" CACHE STRING "ÉèÖÃ¹¤³ÌÎÄ¼şÃû")
+project(${Progject_Name} VERSION 1.1.0 LANGUAGES CXX C)#¹¤³ÌÃû
 
-#è®¾ç½®é»˜è®¤installä½ç½®
+#ÉèÖÃÄ¬ÈÏinstallÎ»ÖÃ
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Installation Directory" FORCE)
 message(STATUS "CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}")
 
-set(CMAKE_CXX_STANDARD 11) #è®¾ç½®C++11å¼€å¯
+set(CMAKE_CXX_STANDARD 11) #ÉèÖÃC++11¿ªÆô
 
-OPTION(USE_OPENMP "ä½¿ç”¨OpenMPåŠ é€Ÿ" OFF)
+OPTION(USE_OPENMP "Ê¹ÓÃOpenMP¼ÓËÙ" OFF)
 if (USE_OPENMP)
     find_package(OpenMP)#OpenMP
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 endif (USE_OPENMP)
 
-OPTION(USE_OPENCV "ä½¿ç”¨OpenCV" OFF)
-if(USE_OPENCV)#å¦‚æœéœ€è¦åŒ…å«ç¬¬ä¸‰æ–¹åº“
+OPTION(USE_OPENCV "Ê¹ÓÃOpenCV" OFF)
+if(USE_OPENCV)#Èç¹ûĞèÒª°üº¬µÚÈı·½¿â
     find_package( OpenCV REQUIRED )
 
     message( STATUS "OpenCV library status:" )
@@ -27,7 +27,7 @@ if(USE_OPENCV)#å¦‚æœéœ€è¦åŒ…å«ç¬¬ä¸‰æ–¹åº“
     include_directories( ${OpenCV_INCLUDE_DIRS} )
 endif(USE_OPENCV)
 
-OPTION(USE_Boost_filesystem "ä½¿ç”¨filesystem" OFF)
+OPTION(USE_Boost_filesystem "Ê¹ÓÃfilesystem" OFF)
 if (USE_Boost_filesystem)
     find_package(Boost REQUIRED filesystem PATHS E:/3rdParty/install)
     include_directories(${Boost_INCLUDE_DIRS})
@@ -36,11 +36,11 @@ if (USE_Boost_filesystem)
     message( STATUS "    include path: ${Boost_INCLUDE_DIRS}" )
 endif(USE_Boost_filesystem)
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#è®¾ç½®é™æ€åº“æ–‡ä»¶ç”Ÿæˆè·¯å¾„
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#è®¾ç½®åŠ¨æ€åº“æ–‡ä»¶ç”Ÿæˆè·¯å¾„
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)#è®¾ç½®exeæ–‡ä»¶ç”Ÿæˆè·¯å¾„
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#ÉèÖÃ¾²Ì¬¿âÎÄ¼şÉú³ÉÂ·¾¶
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#ÉèÖÃ¶¯Ì¬¿âÎÄ¼şÉú³ÉÂ·¾¶
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)#ÉèÖÃexeÎÄ¼şÉú³ÉÂ·¾¶
 
-#addå­ç›®å½•(è¦æ”¾åœ¨æœ€åé¢ï¼Œä¸ç„¶includeç›®å½•ä¸ä¼šåŒ…å«)
+#add×ÓÄ¿Â¼(Òª·ÅÔÚ×îºóÃæ£¬²»È»includeÄ¿Â¼²»»á°üº¬)
 add_subdirectory(source)
 add_subdirectory(include)
 add_subdirectory(demo)

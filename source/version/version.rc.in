@@ -84,7 +84,7 @@ BEGIN
             VALUE "FileDescription", "${PROGRAM_NAME}"
             VALUE "FileVersion", "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}"
             VALUE "InternalName", "${PROGRAM_NAME}.exe"
-            VALUE "LegalCopyright", "Copyright (C) 2019 ORBBEC" 
+            VALUE "LegalCopyright", "Copyright (C) 2020 ORBBEC" 
             VALUE "OriginalFilename", "${PROGRAM_NAME}.exe"
             VALUE "ProductName", "${PROGRAM_NAME}"
             VALUE "ProductVersion", "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}"
