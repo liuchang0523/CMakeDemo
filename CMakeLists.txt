@@ -7,7 +7,10 @@ set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Installation 
 message(STATUS "CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}")
 
 set(CMAKE_CXX_STANDARD 11) #设置C++11开启
+if(MSVC)
 add_compile_options(/MP)#开启Visual studio的并行编译
+add_definitions(-W0)#关闭所有警告
+endif(MSVC)
 
 OPTION(USE_OPENMP "使用OpenMP加速" OFF)
 if (USE_OPENMP)
