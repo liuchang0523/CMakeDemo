@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
-set(Progject_Name "Test" CACHE STRING "设置工程文件名")
+
+#设置工程文件名为CMakeLists.txt的父文件夹名
+STRING( REGEX REPLACE ".*/(.*)" "\\1" Progject_Name ${CMAKE_CURRENT_SOURCE_DIR})
 project(${Progject_Name} VERSION 1.1.1 LANGUAGES CXX C)#工程名
 
 #设置默认install位置

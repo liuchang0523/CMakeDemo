@@ -24,7 +24,7 @@
 #define Test_STRW_EXP(__A)   L#__A
 #define Test_STRW(__A)       Test_STRW_EXP(__A)
 
-#define VERSION     "Biometrics_" "200901" "_v" Test_STR(1) "." Test_STR(1) "." Test_STR(1)
+#define VERSION     "Biometrics_" "200925" "_v" Test_STR(1) "." Test_STR(1) "." Test_STR(1)
 
 
 #endif // ___VERSION_H__
