@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 #设置工程文件名为CMakeLists.txt的父文件夹名
 STRING( REGEX REPLACE ".*/(.*)" "\\1" Progject_Name ${CMAKE_CURRENT_SOURCE_DIR})
-project(${Progject_Name} VERSION 1.1.1 LANGUAGES CXX C)#工程名
+project(${Progject_Name} VERSION 1.2.0 LANGUAGES CXX C)#工程名
 
 #设置默认install位置
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Installation Directory" FORCE)

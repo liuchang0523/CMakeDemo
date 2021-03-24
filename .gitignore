@@ -1,1 +1,3 @@
 /build
+/source/version/version.h
+/source/version/version.rc
