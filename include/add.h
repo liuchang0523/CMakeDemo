@@ -1,5 +1,4 @@
-﻿#ifndef test_h__
-#define test_h__
+﻿#pragma once
 
 #if defined WIN32 && defined dll_EXPORTS
 # define MYDLL __declspec(dllexport)
@@ -9,6 +8,4 @@
 
 MYDLL int myAdd(int a, int b);
 
-MYDLL const char* getProjectVersion();
-
-#endif // test_h__
+MYDLL const char* getAddVersion();

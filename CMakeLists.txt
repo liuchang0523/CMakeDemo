@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 #设置工程文件名为CMakeLists.txt的父文件夹名
 STRING( REGEX REPLACE ".*/(.*)" "\\1" Progject_Name ${CMAKE_CURRENT_SOURCE_DIR})
-project(${Progject_Name} VERSION 1.2.0 LANGUAGES CXX C)#工程名
+project(${Progject_Name} VERSION 1.3.0 LANGUAGES CXX C)#工程名
 
 #设置默认install位置
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Installation Directory" FORCE)
@@ -46,7 +46,9 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#设置静态库文件生成
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#设置动态库文件生成路径
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)#设置exe文件生成路径
 
+include_directories(include)
+
 #add子目录(要放在最后面，不然include目录不会包含)
-add_subdirectory(source)
 add_subdirectory(include)
+add_subdirectory(source)
 add_subdirectory(demo)
