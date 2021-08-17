@@ -1,28 +1,28 @@
-cmake_minimum_required(VERSION 3.5)
+ï»¿cmake_minimum_required(VERSION 3.5)
 
-#ÉèÖÃ¹¤³ÌÎÄ¼şÃûÎªCMakeLists.txtµÄ¸¸ÎÄ¼ş¼ĞÃû
+#è®¾ç½®å·¥ç¨‹æ–‡ä»¶åä¸ºCMakeLists.txtçš„çˆ¶æ–‡ä»¶å¤¹å
 STRING( REGEX REPLACE ".*/(.*)" "\\1" Progject_Name ${CMAKE_CURRENT_SOURCE_DIR})
-project(${Progject_Name} VERSION 1.3.0 LANGUAGES CXX C)#¹¤³ÌÃû
+project(${Progject_Name} VERSION 1.3.0 LANGUAGES CXX C)#å·¥ç¨‹å
 
-#ÉèÖÃÄ¬ÈÏinstallÎ»ÖÃ
+#è®¾ç½®é»˜è®¤installä½ç½®
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Installation Directory" FORCE)
 message(STATUS "CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}")
 
-set(CMAKE_CXX_STANDARD 11) #ÉèÖÃC++11¿ªÆô
+set(CMAKE_CXX_STANDARD 11) #è®¾ç½®C++11å¼€å¯
 if(MSVC)
-add_compile_options(/MP)#¿ªÆôVisual studioµÄ²¢ĞĞ±àÒë
-add_definitions(-W0)#¹Ø±ÕËùÓĞ¾¯¸æ
+add_compile_options(/MP)#å¼€å¯Visual studioçš„å¹¶è¡Œç¼–è¯‘
+add_definitions(-W0)#å…³é—­æ‰€æœ‰è­¦å‘Š
 endif(MSVC)
 
-OPTION(USE_OPENMP "Ê¹ÓÃOpenMP¼ÓËÙ" OFF)
+OPTION(USE_OPENMP "ä½¿ç”¨OpenMPåŠ é€Ÿ" OFF)
 if (USE_OPENMP)
     find_package(OpenMP)#OpenMP
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 endif (USE_OPENMP)
 
-OPTION(USE_OPENCV "Ê¹ÓÃOpenCV" OFF)
-if(USE_OPENCV)#Èç¹ûĞèÒª°üº¬µÚÈı·½¿â
+OPTION(USE_OPENCV "ä½¿ç”¨OpenCV" OFF)
+if(USE_OPENCV)#å¦‚æœéœ€è¦åŒ…å«ç¬¬ä¸‰æ–¹åº“
     find_package( OpenCV REQUIRED )
 
     message( STATUS "OpenCV library status:" )
@@ -33,7 +33,7 @@ if(USE_OPENCV)#Èç¹ûĞèÒª°üº¬µÚÈı·½¿â
     include_directories( ${OpenCV_INCLUDE_DIRS} )
 endif(USE_OPENCV)
 
-OPTION(USE_Boost_filesystem "Ê¹ÓÃfilesystem" OFF)
+OPTION(USE_Boost_filesystem "ä½¿ç”¨filesystem" OFF)
 if (USE_Boost_filesystem)
     find_package(Boost REQUIRED filesystem PATHS E:/3rdParty/install)
     include_directories(${Boost_INCLUDE_DIRS})
@@ -42,13 +42,13 @@ if (USE_Boost_filesystem)
     message( STATUS "    include path: ${Boost_INCLUDE_DIRS}" )
 endif(USE_Boost_filesystem)
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#ÉèÖÃ¾²Ì¬¿âÎÄ¼şÉú³ÉÂ·¾¶
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#ÉèÖÃ¶¯Ì¬¿âÎÄ¼şÉú³ÉÂ·¾¶
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)#ÉèÖÃexeÎÄ¼şÉú³ÉÂ·¾¶
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#è®¾ç½®é™æ€åº“æ–‡ä»¶ç”Ÿæˆè·¯å¾„
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)#è®¾ç½®åŠ¨æ€åº“æ–‡ä»¶ç”Ÿæˆè·¯å¾„
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)#è®¾ç½®exeæ–‡ä»¶ç”Ÿæˆè·¯å¾„
 
 include_directories(include)
 
-#add×ÓÄ¿Â¼(Òª·ÅÔÚ×îºóÃæ£¬²»È»includeÄ¿Â¼²»»á°üº¬)
+#addå­ç›®å½•(è¦æ”¾åœ¨æœ€åé¢ï¼Œä¸ç„¶includeç›®å½•ä¸ä¼šåŒ…å«)
 add_subdirectory(include)
 add_subdirectory(source)
 add_subdirectory(demo)
